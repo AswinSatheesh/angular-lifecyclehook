@@ -17,4 +17,8 @@ export class AppComponent {
   searchText(el : HTMLInputElement){
     this.inputVal = el.value;
   }
+
+  ngAfterViewInit(){
+    console.log('Parent ngAfterViewInit hook called');
+  }
 }
