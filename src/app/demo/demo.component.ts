@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, OnChanges,SimpleChanges, ViewChild, ElementRef,DoCheck,AfterContentInit,ContentChild,AfterContentChecked,AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges,SimpleChanges, ViewChild, ElementRef,DoCheck,AfterContentInit,ContentChild,AfterContentChecked,AfterViewInit, AfterViewChecked } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnChanges,OnInit,DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit{
+export class DemoComponent implements OnChanges,OnInit,DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked{
 
   @Input() message! : string;
   @ViewChild('temp') tempPara! : ElementRef;
@@ -37,11 +37,16 @@ export class DemoComponent implements OnChanges,OnInit,DoCheck,AfterContentInit,
 
   ngAfterContentChecked(){
     console.log('ngAfterContentChecked hook called');
-    console.log('ngAfterContentChecked',this.tempPara)
+    // console.log('ngAfterContentChecked',this.tempPara)
   }
 
   ngAfterViewInit(){
     console.log('ngAfterViewInit hook called');
-    console.log('ngAfterViewInit',this.tempPara)
+    // console.log('ngAfterViewInit',this.tempPara)
+  }
+
+  ngAfterViewChecked(){
+    console.log('ngAfterViewChecked hook called');
+    console.log(this.tempPara.nativeElement.textContent)
   }
 }

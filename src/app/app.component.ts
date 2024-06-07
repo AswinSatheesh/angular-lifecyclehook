@@ -21,4 +21,8 @@ export class AppComponent {
   ngAfterViewInit(){
     console.log('Parent ngAfterViewInit hook called');
   }
+
+  ngAfterViewChecked(){
+    console.log('Parent ngAfterViewChecked hook called');
+  }
 }
