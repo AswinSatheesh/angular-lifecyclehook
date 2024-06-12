@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, OnChanges,SimpleChanges, ViewChild, ElementRef,DoCheck,AfterContentInit,ContentChild,AfterContentChecked,AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, Input, OnInit, OnChanges,SimpleChanges, ViewChild, ElementRef,DoCheck,AfterContentInit,ContentChild,AfterContentChecked,AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnChanges,OnInit,DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked{
+export class DemoComponent implements OnChanges,OnInit,DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy{
 
   @Input() message! : string;
   @ViewChild('temp') tempPara! : ElementRef;
@@ -48,5 +48,10 @@ export class DemoComponent implements OnChanges,OnInit,DoCheck,AfterContentInit,
   ngAfterViewChecked(){
     console.log('ngAfterViewChecked hook called');
     console.log(this.tempPara.nativeElement.textContent)
+  }
+
+  ngOnDestroy(){
+    console.log('ngOnDestroy hook called');
+
   }
 }

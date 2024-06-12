@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'angular-lifecyclehook';
 
   inputVal : string = '';
+  toDestroy : boolean = false;
   
   constructor(){
     console.log('App component Constructor');
@@ -18,11 +19,15 @@ export class AppComponent {
     this.inputVal = el.value;
   }
 
-  ngAfterViewInit(){
-    console.log('Parent ngAfterViewInit hook called');
-  }
+  // ngAfterViewInit(){
+  //   console.log('Parent ngAfterViewInit hook called');
+  // }
 
-  ngAfterViewChecked(){
-    console.log('Parent ngAfterViewChecked hook called');
+  // ngAfterViewChecked(){
+  //   console.log('Parent ngAfterViewChecked hook called');
+  // }
+
+  destroyComponent(){
+    this.toDestroy = !this.toDestroy;
   }
 }
